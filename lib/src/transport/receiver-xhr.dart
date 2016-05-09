@@ -20,7 +20,7 @@ part of sockjs_client;
         }
     });
     xo.onFinish.listen((e) {
-        dispatch(new StatusEvent("chunk", e.status, e.text));
+        xo.dispatch(new StatusEvent("chunk", e.status, e.text));
         xo = null;
         var reason = (e.status == 200) ? 'network' : 'permanent';
         dispatch(new CloseEvent(reason: reason));
